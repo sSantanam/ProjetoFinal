@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Excluir Produto</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2 class="mb-4">Excluir Produto</h2>
+
+  <!-- Detalhes do Produto -->
+  <div class="card mb-4">
+    <div class="card-header">
+      Detalhes do Produto
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="areia.png" alt="Produto 1" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+          <h5 class="card-title">Areia Média Lavada 20kg</h5>
+          <p class="card-text">Descrição do Produto Lavada 20kg.</p>
+          <p class="card-text"><strong>Preço:</strong> R$ 7,99</p>
+          <p class="card-text"><strong>Quantidade em Estoque:</strong> 2000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulário de Exclusão -->
+  <form action="confirmacao.html" method="post">
+    <div class="form-group">
+      <label for="confirmacao">Digite 'EXCLUIR' para confirmar a exclusão:</label>
+      <input type="text" class="form-control" id="confirmacao" name="confirmacao" required>
+    </div>
+    <button type="submit" class="btn btn-danger">Excluir Produto</button>
+  </form>
+  
+  <!-- Mensagem de Confirmação (oculta inicialmente) -->
+  <div class="alert alert-success mt-4" role="alert" id="mensagemConfirmacao" style="display: none;">
+    O produto foi excluído com sucesso!
+  </div>
+</div>
+
+<!-- Inclua o Bootstrap JavaScript (opcional) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Script para exibir mensagem de confirmação após a exclusão -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const mensagemConfirmacao = document.getElementById('mensagemConfirmacao');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const confirmacaoInput = document.getElementById('confirmacao');
+      
+      if (confirmacaoInput.value.trim().toUpperCase() === 'EXCLUIR') {
+        // Simulação de exclusão bem-sucedida (pode ser substituído pela lógica real)
+        // Aqui você pode enviar uma solicitação para excluir o produto no backend
+        // e, em seguida, exibir a mensagem de confirmação.
+        mensagemConfirmacao.style.display = 'block';
+        form.style.display = 'none';  // Esconde o formulário após a exclusão
+      } else {
+        alert('Por favor, digite "EXCLUIR" para confirmar a exclusão.');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+
