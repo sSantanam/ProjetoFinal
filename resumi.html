@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opções de Pagamento</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+        <h2 class="mb-4">Escolha a forma de pagamento:</h2>
+
+        <div class="row">
+         
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dinheiro</h5>
+                        <p class="card-text">Receber em Dinheiro.</p>
+                        <button class="btn btn-primary" onclick="selectPayment('Dinheiro')">Selecionar</button>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Débito</h5>
+                        <p class="card-text">Pague com seu cartão de débito.</p>
+                        <button class="btn btn-primary" onclick="selectPayment('Débito')">Selecionar</button>
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Crédito</h5>
+                        <p class="card-text">Pague com seu cartão de crédito.</p>
+                        <button class="btn btn-primary" onclick="selectPayment('Crédito')">Selecionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+       
+        <div class="mt-5" id="cardInfoForm" style="display: none;">
+            <h2>Informações do Cartão</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label">Número do Cartão</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="mb-3">
+                    <label for="expiryDate" class="form-label">Data de Expiração</label>
+                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                </div>
+                <div class="mb-3">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="123">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="saveCardInfo()">Salvar Informações</button>
+                <button type="button" class="btn btn-primary" >Pagar</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function selectPayment(paymentType) {
+            if (paymentType === 'Crédito' || paymentType === 'Débito') {
+               
+                document.getElementById('cardInfoForm').style.display = 'block';
+            } else {
+               
+                document.getElementById('cardInfoForm').style.display = 'none';
+            }
+            alert(`Forma de pagamento selecionada: ${paymentType}`);
+        }
+
+        function saveCardInfo() {
+           
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+       
+            alert(`Informações do cartão salvas:\nNúmero: ${cardNumber}\nExpiração: ${expiryDate}\nCVV: ${cvv}`);
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

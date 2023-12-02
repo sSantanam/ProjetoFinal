@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #0962bb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      max-width: 400px;
+      width: 100%;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .signup-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container login-container">
+   
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="usuario">Usuario:</label>
+        <input type="text" class="form-control" id="username" required>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" class="form-control" id="password" required>
+      </div>
+      <a href="home.html" class="btn btn-primary btn-block" onclick="validateLogin()">Login</button>
+      
+      <a href="#" class="signup-link" data-toggle="modal" data-target="#signupModal">Ainda não tem uma conta? Cadastre-se aqui.</a>
+    </form>
+  </div>
+
+  
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Cadastro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         
+          <form id="signupForm">
+            <div class="form-group">
+              <label for="newUsername">Novo Usuário:</label>
+              <input type="text" class="form-control" id="newUsername" required>
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Nova Senha:</label>
+              <input type="password" class="form-control" id="newPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="newemail">Email:</label>
+              <input type="email" class="form-control" id="newemail" required>
+            </div>
+            <div class="container mt-9">
+                <form>
+                  <div class="form-group">
+                    <label for="celular">Celular:</label>
+                    <input type="text" class="form-control" id="celular" name="celular" pattern="[0-9]+" title="Por favor, insira apenas números" required>
+                    <small id="celularHelp" class="form-text text-muted">Por favor, insira apenas números.</small>
+                  </div>
+                 
+                </form>
+              </div>
+        
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="submitSignup()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function validateLogin() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      
+      if (username === 'seu_usuario' && password === 'sua_senha') {
+        alert('Login bem-sucedido!');
+      } else {
+        alert('Login bem-sucedido!');
+      }
+    }
+
+    function submitSignup() {
+      var newUsername = document.getElementById('newUsername').value;
+      var newPassword = document.getElementById('newPassword').value;
+
+      alert('Cadastro realizado com sucesso para o usuário: ' + newUsername);
+
+      
+      $('#signupModal').modal('hide');
+    }
+  </script>
+
+</body>
+</html>
